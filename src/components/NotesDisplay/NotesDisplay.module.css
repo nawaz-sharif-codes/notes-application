@@ -27,14 +27,50 @@ html,body{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    gap: 10px;
+    gap: 20px;
     color: #111;
 }
 
-.deleteButton{
+.displayCardsButton{
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    position: relative;
-    left:150px
+}
+
+.editNotesDisplayCard{
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 40px;
+    color: #111;
+}
+
+.editInput{
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.editTextArea{
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.editIconsContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.editInputTextAreaContainer{
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+
+.notesHeader{
+    display: flex;
+    justify-content: space-between;
 }

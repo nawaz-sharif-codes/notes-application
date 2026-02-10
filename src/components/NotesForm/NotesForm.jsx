@@ -7,9 +7,34 @@ const NotesForm = () => {
   const [formInput, setFormInput] = useState("");
   const [formDetails, setFormDetails] = useState("");
   const [notes, setNotes] = useState([]);
+  const [updateId, setUpdateId] = useState(null)
+  const [updateForm, setUpdateForm] = useState({
+    title : '',
+    description:''
+  })
 
   const handleDelete = (id) =>{
     setNotes(prevNotes => prevNotes.filter((note) => note.id !== id))
+  }
+
+  const editHandler = (note) => {
+    setUpdateId(note.id);
+    setUpdateForm({
+      title : note.title,
+      description : note.description
+    })
+  }
+
+  const saveHandler = () => {
+    setNotes(prevNotes => prevNotes.map((note) => 
+      note.id == updateId ? {...note, ...updateForm} : note
+    ))
+
+    setUpdateId(null)
+  }
+
+  const cancelHandler = () => {
+    setUpdateId(null)
   }
 
   return (
@@ -57,7 +82,9 @@ const NotesForm = () => {
         </form>
       </div>
       <h2>Planned tasks for today</h2>
-      <NotesDisplay notes= {notes} onDelete= {handleDelete}/>
+      <NotesDisplay notes= {notes} onDelete= {handleDelete} 
+      updateId = {updateId} updateForm = {updateForm} setUpdateForm = {setUpdateForm}
+      onEdit = {editHandler} onSave = {saveHandler} onCancel = {cancelHandler}/>
     </>
   );
 };
