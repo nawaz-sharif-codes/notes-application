@@ -8,6 +8,10 @@ const NotesForm = () => {
   const [formDetails, setFormDetails] = useState("");
   const [notes, setNotes] = useState([]);
 
+  const handleDelete = (id) =>{
+    setNotes(prevNotes => prevNotes.filter((note) => note.id !== id))
+  }
+
   return (
     <>
       <div className={styles.parentNotesForm}>
@@ -53,7 +57,7 @@ const NotesForm = () => {
         </form>
       </div>
       <h2>Planned tasks for today</h2>
-      <NotesDisplay notes={notes} />
+      <NotesDisplay notes= {notes} onDelete= {handleDelete}/>
     </>
   );
 };
