@@ -68,10 +68,10 @@ const NotesDisplay = ({
                 </button>
               </div>
               <span>
-                <b>Title :</b> {note.title}
+              {note.title}
               </span>
               <span>
-                <b>Description :</b> {note.description}
+              <small>{note.description}</small>
               </span>
             </div>
           )}
